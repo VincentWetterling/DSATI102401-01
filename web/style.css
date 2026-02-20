@@ -31,6 +31,14 @@ h1{margin:0;font-size:1.6rem}
 .other-item .negative-mini li{color:#fca5a5}
 #configTextarea{display:none}
 
+/* weight form layout */
+.weights .weight-row{display:flex;align-items:center;gap:12px;padding:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
+.weights .crit-text{flex:2}
+.weights .score-preview{flex:3;color:var(--muted);font-size:.9rem}
+.weights .weight-field{flex:1;display:flex;align-items:center;gap:4px}
+.weights .weight-input{width:60px;padding:4px;border-radius:6px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit;text-align:center}
+
+
 /* Config form */
 .config-toolbar .btn{padding:6px 10px}
 #configForm{margin-top:8px}
@@ -38,6 +46,7 @@ h1{margin:0;font-size:1.6rem}
 .config-q-header{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
 .config-q-header label{color:var(--muted);font-size:.85rem}
 .config-q-header input[type="text"]{padding:8px;border-radius:6px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit}
+.config-q-header input[type="number"]{padding:6px;border-radius:6px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit;width:60px;text-align:center}
 .config-options{display:flex;flex-direction:column;gap:8px;margin-bottom:8px}
 .config-option{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:6px;border-radius:6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02)}
 .config-option .scores{display:flex;gap:8px;align-items:center}
