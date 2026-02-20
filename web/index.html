@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>LLM Hosting-Auswahlhilfe</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>LLM Hosting‑Auswahlhilfe</h1>
+        <p class="lead">Beantworte ein paar kurze Fragen — am Ende bekommst du eine Empfehlung (Lokal / API (IONOS) / Cloud (AWS) / Proprietär).</p>
+      </header>
+
+      <section class="card" id="intro">
+        <h2>Kurzfragebogen</h2>
+        <p>Der Assistent zeigt dir, welche Bereitstellungsart am besten zu deinen Prioritäten passt (Datenschutz, Kosten, Modellauswahl, Training...).</p>
+        <div class="btn-row">
+          <button id="startBtn" class="btn primary">Los geht's</button>
+          <button id="howBtn" class="btn">Kurzinfo</button>
+          <button id="configBtn" class="btn">Fragen & Gewichtung</button>
+        </div>
+      </section>
+
+      <section class="card hidden" id="questionCard">
+        <div id="progress">Frage <span id="qIndex">1</span> / <span id="qTotal">1</span></div>
+        <h3 id="qText"></h3>
+        <div id="options" class="options"></div>
+        <div class="nav">
+          <button id="backBtn" class="btn">Zurück</button>
+          <button id="nextBtn" class="btn primary">Weiter</button>
+        </div>
+      </section>
+
+      <section class="card hidden" id="resultCard">
+        <h2>Empfehlung</h2>
+        <div id="recommendation" class="recommendation"></div>
+
+        <div class="pro-con-grid">
+          <div>
+            <h3>Positive Punkte</h3>
+            <ul id="positives" class="reasons positive"></ul>
+          </div>
+          <div>
+            <h3>Negative Punkte</h3>
+            <ul id="negatives" class="reasons negative"></ul>
+          </div>
+        </div>
+
+        <h3>Weitere Optionen (Rangfolge)</h3>
+        <div id="otherList" class="other-list"></div>
+
+        <div class="btn-row">
+          <button id="restartBtn" class="btn">Neu starten</button>
+          <button id="exportBtn" class="btn">Ergebnis als JSON</button>
+        </div>
+      </section>
+
+      <section class="card hidden" id="configCard">
+        <h2>Fragen & Gewichtung anpassen</h2>
+        <p>Bearbeite Fragen und Punktwerte über das Formular. Änderungen werden lokal im Browser gespeichert (localStorage).</p>
+
+        <div class="config-toolbar btn-row" style="margin-bottom:10px">
+          <button id="addQuestionBtn" class="btn">+ Neue Frage</button>
+          <button id="applyConfigBtn" class="btn primary">Speichern</button>
+          <button id="resetConfigBtn" class="btn">Auf Standard zurücksetzen</button>
+          <button id="exportConfigBtn" class="btn">Exportieren</button>
+          <button id="importConfigBtn" class="btn">Importieren</button>
+          <input id="importConfigInput" type="file" accept="application/json" style="display:none" />
+          <button id="closeConfigBtn" class="btn">Schließen</button>
+        </div>
+
+        <div id="configForm"></div>
+
+        <div style="margin-top:8px;color:var(--muted);font-size:.9rem">Tipp: Felder ausfüllen → <strong>Speichern</strong>. Scores sind ganze Zahlen; Frage‑IDs müssen eindeutig sein.</div>
+      </section>
+
+      <section class="card hidden" id="howCard">
+        <h2>Kurzinfo zu den Optionen</h2>
+        <ul>
+          <li><strong>Lokal (Ollama)</strong> — maximale Datenhoheit, sehr hohe Kosten.</li>
+          <li><strong>API (IONOS)</strong> — hoher Datenschutz, geringe Kosten, wenig Modellauswahl.</li>
+          <li><strong>Cloud API (AWS)</strong> — viele Open‑Source‑Modelle, sehr hohe Kosten, Datenschutz eingeschränkt.</li>
+          <li><strong>Proprietär (OpenAI / Claude / Gemini)</strong> — Premium‑Modelle, amerikanische Anbieter, Datenschutz abhängig, begrenzte Modellauswahl.</li>
+        </ul>
+        <div class="btn-row"><button id="closeHow" class="btn primary">Schließen</button></div>
+      </section>
+
+      <footer>
+        <small>Einfacher Entscheidungshelfer — passe Fragen oder Gewichtung bei Bedarf an.</small>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
